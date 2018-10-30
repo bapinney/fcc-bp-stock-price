@@ -9,6 +9,7 @@ dependencies:
   mocha: 3.5.3
   mongodb: 2.2.36
   mongoose: 5.3.7
+  promise: 8.0.2
   zombie: 5.0.8
 packages:
   /abab/1.0.4:
@@ -62,6 +63,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+  /asap/2.0.6:
+    dev: false
+    resolution:
+      integrity: sha1-5QNHYR1+aQlDIIu9r+vLwvuGbUY=
   /asn1/0.2.4:
     dependencies:
       safer-buffer: 2.1.2
@@ -1184,6 +1189,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-MtEC1TqN0EU5nephaJ4rAtThHtC86dNN9qCuEhtshvpVBkAW5ZO7BASN9REnF9eoXGcRub+pFuKEpOHE+HbEMw==
+  /promise/8.0.2:
+    dependencies:
+      asap: 2.0.6
+    dev: false
+    resolution:
+      integrity: sha512-EIyzM39FpVOMbqgzEHhxdrEhtOSDOtjMZQ0M6iVfCE+kWNgCkAyOdnuCWqfmflylftfadU6FkiMgHZA2kUzwRw==
   /proxy-addr/2.0.4:
     dependencies:
       forwarded: 0.1.2
@@ -1649,4 +1660,5 @@ specifiers:
   mocha: ^3.2.0
   mongodb: ^2.2.16
   mongoose: ^5.3.7
+  promise: ^8.0.2
   zombie: ^5.0.5
