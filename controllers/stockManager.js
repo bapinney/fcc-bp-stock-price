@@ -75,13 +75,10 @@ class StockManager {
             );
 */
             cursor.on('data', function(doc) {
-              console.log(doc);
               results.push(doc);
             });
 
             cursor.once('end', function() {
-              console.log("At end222");
-              console.dir(results);
               db.close();
               resolve(results);              
             });            
@@ -94,7 +91,6 @@ class StockManager {
         var mongodb = require("mongodb");
 
         var client = mongodb.MongoClient;
-        console.log("Here is db...");
         var url = process.env.DB;
         return new Promise((resolve, reject) => {
           client.connect(url, function(err, client) {
@@ -180,13 +176,10 @@ class StockManager {
               );
   */
               cursor.on('data', function(doc) {
-                console.log(doc);
                 results.push(doc);
               });
 
               cursor.once('end', function() {
-                console.log("At end111");
-                console.dir(results);
                 db.close();
                 resolve(results);              
               });

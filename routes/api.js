@@ -86,7 +86,7 @@ module.exports = function (app, db) {
               console.dir(data);
               var d = [];
               data.forEach(function(e) { d[e.ticker] = e['COUNT(*)']; })
-              res.json({"stockData":[{"stock":sym[0], "price":price[0], "likes": (d[sym[0]] - d[sym[1]])},{"stock":sym[1], "price":price[1], "likes": (d[sym[1]] - d[sym[0]])}]}); 
+              res.json({"stockData":[{"stock":sym[0], "price":price[0], "rel_likes": (d[sym[0]] - d[sym[1]])},{"stock":sym[1], "price":price[1], "rel_likes": (d[sym[1]] - d[sym[0]])}]}); 
             });
           });
       });

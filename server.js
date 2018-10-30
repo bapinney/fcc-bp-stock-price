@@ -29,7 +29,7 @@ app.route('/')
 fccTestingRoutes(app);
 
 const DB = process.env.DB;
-mongoose.connect(DB, { useMongoClient: true, useNewUrlParser: true }); /*, function(err, client) {
+mongoose.connect(DB, { useNewUrlParser: true }); /*, function(err, client) {
 }*/
 mongoose.Promise = global.Promise; //We need this because Mongoose is async and its own promise library is deprecated...
 

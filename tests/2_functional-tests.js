@@ -16,7 +16,7 @@ chai.use(chaiHttp);
 suite('Functional Tests', function() {
     
     suite('GET /api/stock-prices => stockData object', function() {
-/*      
+    
       test('1 stock', function(done) {
        chai.request(server)
         .get('/api/stock-prices')
@@ -29,6 +29,7 @@ suite('Functional Tests', function() {
         });
       }); 
       
+      var likesBefore;
       test('1 stock with like', function(done) {
         chai.request(server)
         .get('/api/stock-prices')
@@ -36,21 +37,51 @@ suite('Functional Tests', function() {
         .end(function(err, res) {
           console.log("Here is res after like");
           console.dir(res);
+          likesBefore = res.body.likes;
+          assert.isAtLeast(likesBefore, 1, "Liked stock has at least 1 like");
+          done();
         });
       });
       
       test('1 stock with like again (ensure likes arent double counted)', function(done) {
-        
+        chai.request(server)
+        .get('/api/stock-prices')
+        .query({stock: 'AAPL', like:'true'})
+        .end(function(err, res) {
+          console.log("Here is res after like");
+          console.dir(res);
+          assert.equal(res.body.likes, likesBefore, "Likes aren't double counted");
+          done();
+        });
       });
       
       test('2 stocks', function(done) {
-        
+        //stock=CSIQ&stock=MSFT
+        chai.request(server)
+        .get('/api/stock-prices')
+        .query("stock=CSIQ&stock=MSFT")
+        .end(function(err, res) {
+          console.log("Here is res after 2 query");
+          console.dir(res);
+          assert.equal(res.body.stockData.length, 2, "2 stocks");
+          done();
+        });
       });
       
       test('2 stocks with like', function(done) {
-        
+        chai.request(server)
+        .get('/api/stock-prices')
+        .query("stock=CSIQ&stock=MSFT")
+        .end(function(err, res) {
+          console.log("Here is res after 2 like query");
+          console.dir(res);
+          assert.equal(res.body.stockData[0].hasOwnProperty("rel_likes"), true, "Has relative likes");
+          assert.equal(typeof res.body.stockData[0].likes,"number","Relative likes is a number");
+          done();
+        });
       });
- */     
+      
+     
     });
 
 });
